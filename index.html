@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Memes</title>
+    <style>
+        body {
+            font-family: serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 300px; /* Largura máxima de 300 pixels */
+            max-height: 300px; /* Altura máxima de 300 pixels */
+        }
+        #meme-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        #meme-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #funny-button {
+            background: linear-gradient(to bottom, #00cc00, #006600);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+            position: fixed; /* Mantém o botão fixo na tela */
+            bottom: 20px; /* Define a distância entre o botão e o fundo da janela */
+            right: 20px; /* Define a distância entre o botão e a borda direita da janela */
+        }
+        #funny-button:hover {
+            background: linear-gradient(to bottom, #009900, #003300);
+        }
+    </style>
+</head>
+<body>
+    <div id="meme-container">
+        <img src="https://th.bing.com/th/id/OIP.XTuzm8hZMvPtXeh1MG0AiAHaFj" alt="Bora Bill">
+        <p id="meme-text">Você lembra desses memes?</p>
+        <button id="funny-button">Memes engraçados agora!</button>
+    </div>
+    
+    <script>
+        var audio = new Audio("https://www.youtube.com/watch?v=qZOOceOY6Eo");
+        var button = document.getElementById("funny-button");
+
+        // URLs das imagens
+        var imageUrls = [
+            "https://img.elo7.com.br/product/main/44AD45F/camiseta-luva-de-pedreiro-receba-meme-unissex-t-shirt-malha-chinelo-cyclone.jpg",
+            "https://i.ytimg.com/vi/G5FVTWnWz3k/maxresdefault.jpg",
+            "https://s2-techtudo.glbimg.com/wHpC9JX21OsvgvKXbMnbkdiWKSQ=/0x0:695x463/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/O/R/k9NvlVQ9mixSDzodczAw/trollface.jpg",
+            "https://blogs.correio24horas.com.br/correiodefuturo/wp-content/uploads/2019/01/meme-.jpg",
+            "https://img.ifunny.co/images/5b215365f33f6f66808167dad100fa371ae2bd29da22f34fa68dd571bd8e1e14_1.webp",
+            "https://img.quizur.com/f/img608328e24244c6.54952977.jpg?lastEdited=1619208489"
+        ];
+
+        button.addEventListener("click", function() {
+            // Escolher um índice aleatório
+            var randomIndex = Math.floor(Math.random() * imageUrls.length);
+            // Selecionar a imagem com base no índice aleatório
+            var randomImageUrl = imageUrls[randomIndex];
+            // Alterar a imagem exibida
+            document.querySelector("img").src = randomImageUrl;
+            audio.play();
+        });
+    </script>
+</body>
+</html>
